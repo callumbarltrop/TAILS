@@ -1,22 +1,18 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-# TAILS
+# **The TAILS approach for threshold selection**
 ## R Code to accompany the paper "Automated tail-informed threshold selection for extreme coastal sea levels"
 
 This repository contains the code required for implementing the threshold selection technique introduced in Collings et al. (2025). These main function includes the option to be run in parallel to speed up computation. Below is a demonstration application of the code using observational sea-level data from from Dauphin Island, Alabama. 
 
 ## The peaks over threshold approach and the Generalized Pareto Distribution (GPD)
 
-The peaks over threshold approach, whereby a theoretically motivated distribution is fitted to the excesses of some high threshold, is the most common technique for assessing tail behaviour in environmental settings. Given any random variable \( X \) and a threshold \( u \), the excess variable \( Y := (X - u \mid X > u) \) can be approximated by a *generalised Pareto distribution* (GPD) -- so long as the threshold \( u \) is `sufficiently large'. The GPD has the form
-\[
-H(y; \sigma, \xi) = 1 - \left(1 + \frac{\xi y}{\sigma}\right)_+^{-1/\xi}, \; \; \; y>0, 
-\]
-where \( z_+ = \max(0,z) \), \( \sigma > 0 \), and \( \xi \) denotes any real number. The parameters \( \sigma \) and \( \xi \) are referred to as the scale and shape parameters, respectively. 
+The peaks over threshold approach, whereby a theoretically motivated distribution is fitted to the excesses of some high threshold, is the most common technique for assessing tail behaviour in environmental settings. Given any random variable X and a threshold u, the excess variable Y := (X - u | X > u) can be approximated by a *generalised Pareto distribution* (GPD) — so long as the threshold u is "sufficiently large". The GPD has the form:
 
-The ambiguity of the statement `a sufficiently large threshold \( u \)' requires careful consideration. This is a problem that is commonly overlooked in many applications, and selecting a threshold \( u \) is entirely non-trivial. In particular, this selection represents a bias-variance trade-off: selecting a threshold too low will induce bias by including observations that do not represent tail behaviour, while extremely high thresholds will result in more variability due to lower sample sizes. 
+H(y; σ, ξ) = 1 - (1 + (ξ y) / σ)_+^(-1/ξ),    for y > 0, 
+
+where z_+ = max(0, z), σ > 0, and ξ denotes any real number. The parameters σ and ξ are referred to as the scale and shape parameters, respectively.
+
+The ambiguity of the statement "a sufficiently large threshold u" requires careful consideration. This is a problem that is commonly overlooked in many applications, and selecting a threshold u is entirely non-trivial. In particular, this selection represents a bias-variance trade-off: selecting a threshold too low will induce bias by including observations that do not represent tail behaviour, while extremely high thresholds will result in more variability due to lower sample sizes.
+
 
 ## Threshold selection
 
@@ -232,11 +228,11 @@ All plots can be easily recreated with the R scripts provided. These scripts can
 * **Functions/helper_functions.R.R** - this file contains the main threshold selection function for the TAILS approach. 
 * **example_script.R** - this file contains all of the code illustrated in the demonstration above. With this script, one can easily apply the TAILS approach to the provided sea level data set, and it is straightforward to adapt for other examples.  
 
-The `Functions' folder contains all of the key functions for the TAILS algorithm. 
+The repo also contains the following folders
 
-The `ExamplePlots' folder contains example plot from the application of the TAILS method to sea level data from Dauphin Island, Alabama. 
-
-The `ExampleDataset' folder contains a .csv file with the observational data from Dauphin Island, Alabama. 
+* **Functions** - this folder contains all of the key functions for the TAILS algorithm. 
+* **ExamplePlots** - this folder contains example plot from the application of the TAILS method to sea level data from Dauphin Island, Alabama. 
+* **ExampleDataset** - this folder contains a .csv file with the observational data from Dauphin Island, Alabama. 
 
 ## Questions?
 
