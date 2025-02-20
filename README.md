@@ -45,7 +45,7 @@ package.check <- lapply(
 )
 ```
 
-Next, we load in the observational data set and specify the baseline probability relative to this data
+Next, we load in the observational data set and specify the baseline probability relative to this data. The observational dataset has been detrended to remove the effect of sea level rise, and declustered using a 4-day storm window to ensure event independence.
 
 ```r
 # Load in data from csv. Make sure your directory is set to the Github repo home.
@@ -67,7 +67,7 @@ points_per_year = length(data)/record_length
 baseline_probability = 1-1/(baseline_event_RP*points_per_year)
 ```
 
-We then specify candidate thresholds over for fitting the GPD. We recommend selecting a fine grid to ensure the algorithm converges to globally optimal threshold choice. 
+We then specify candidate thresholds for fitting the GPD. We recommend selecting a fine grid to ensure the algorithm converges to globally optimal threshold choice. 
 
 ```r
 # Specify non-exceedance quantile probabilities at which to define thresholds
@@ -207,7 +207,7 @@ legend("bottomleft",legend=c("k = 100, m = 500", "k = 200, m = 250"),lwd=4,col=c
 
 <img src="ExamplePlots/distance_metric_comparison.png" style="max-width: 80%; height: auto;">
 
-Finally, the code can also be ran in parallel. This will significantly speed up computation. Furthermore, this is very straightforward to implement, as we demonstrate below. Please note that the number of 'cores' must be less than the number of cores available on your workstation; entre detectCores() to the command line to check this. 
+Finally, the code can also be ran in parallel. This will significantly speed up computation. Furthermore, this is very straightforward to implement, as we demonstrate below. Please note that the number of 'cores' must be less than the number of cores available on your workstation; enter detectCores() to the command line to check this. 
 
 ```r
 # Threshold select algorithm in parallel
@@ -225,7 +225,7 @@ thresh_select_parallel = thresh_select_function(data = data, # Specify the data 
 All plots can be easily recreated with the R scripts provided. These scripts can be easily modified to apply the TAILS approach on any univariate data set. A brief description of each script is given below. 
 
 * **Functions/helper_functions.R** - this file contains all of the required functions for modelling with the GPD.  
-* **Functions/helper_functions.R.R** - this file contains the main threshold selection function for the TAILS approach. 
+* **Functions/thresh_select_function.R** - this file contains the main threshold selection function for the TAILS approach. 
 * **example_script.R** - this file contains all of the code illustrated in the demonstration above. With this script, one can easily apply the TAILS approach to the provided sea level data set, and it is straightforward to adapt for other examples.  
 
 The repo also contains the following folders
