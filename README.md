@@ -248,6 +248,6 @@ c.murphy4[at]lancaster.ac.uk
 
 Murphy, C., Tawn, J. A., & Varty, Z. (2024). Automated threshold selection and associated inference uncertainty for univariate extremes. Technometrics, 1-10.
 
-Colings, T.P, Murphy-Barltrop, C. J. R., Murphy, C., Quinn, N., & Bates, P.D. (2025). Automated tail-informed threshold selection for extreme coastal sea levels. arXiv preprint arXiv:.
+Colings, T.P, Murphy-Barltrop, C. J. R., Murphy, C., Quinn, N., & Bates, P.D. (2025). Automated tail-informed threshold selection for extreme coastal sea levels. Preprint.
 
 
